@@ -29,5 +29,5 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           flags: unittests
-          files: .cover.out
+          files: .coverage/coverage.out
           token: ${{ secrets.CODECOV_TOKEN }}
