@@ -41,8 +41,9 @@ let foobar = 838383;
 func testLetStatement(t *testing.T, s ast.Statement, name string) {
 	assert.Equal(t, "let", s.TokenLiteral())
 
-	letStmt, ok := s.(*ast.LetStatement)
-	assert.True(t, ok, "s not *ast.LetStatement. got=%T:", s)
+	assert.IsType(t, &ast.LetStatement{}, s)
+	letStmt := s.(*ast.LetStatement)
+
 	assert.Equal(t, letStmt.Name.Value, name)
 	assert.Equal(t, letStmt.Name.TokenLiteral(), name)
 }
